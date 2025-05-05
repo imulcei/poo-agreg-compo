@@ -9,15 +9,13 @@ public class Piece {
     private int profondeur;
     private String nom;
     final private int nbMeublesMaxi = 6;
-    private int nbMeubles;
     private List<Meuble> tabMeubles;
 
-    public Piece(int largeur, int hauteur, int profondeur, String nom, int nbMeubles) {
-        this.largeur = largeur;
-        this.hauteur = hauteur;
-        this.profondeur = profondeur;
-        this.nom = nom;
-        this.nbMeubles = nbMeubles;
+    public Piece(int largeur, int hauteur, int profondeur, String nom) {
+        setLargeur(largeur);
+        setHauteur(hauteur);
+        setProfondeur(profondeur);
+        setNom(nom);
         this.tabMeubles = new ArrayList<>();
     }
 
@@ -36,7 +34,6 @@ public class Piece {
     public List<Meuble> addMeubles(Meuble meuble) {
         if (tabMeubles.size() < nbMeublesMaxi) {
             tabMeubles.add(meuble);
-            nbMeubles++;
         } else {
             System.out.println("Nombre maximum de meubles atteint !");
         }
@@ -65,8 +62,52 @@ public class Piece {
 
     public void affiche() {
         System.out.println("Nom: " + nom + ". Hauteur: " + hauteur + " cm. Largeur: " + largeur
-                + " cm. Profondeur: " + profondeur + " cm. Nombre de meubles: " + nbMeubles
+                + " cm. Profondeur: " + profondeur + " cm. Nombre de meubles: " + howManyMeubles()
                 + ".");
+    }
+
+    public int getLargeur() {
+        return largeur;
+    }
+
+    public void setLargeur(int largeur) {
+        this.largeur = largeur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+
+    public int getProfondeur() {
+        return profondeur;
+    }
+
+    public void setProfondeur(int profondeur) {
+        this.profondeur = profondeur;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getNbMeublesMaxi() {
+        return nbMeublesMaxi;
+    }
+
+    public List<Meuble> getTabMeubles() {
+        return tabMeubles;
+    }
+
+    public void setTabMeubles(List<Meuble> tabMeubles) {
+        this.tabMeubles = tabMeubles;
     }
 
 }

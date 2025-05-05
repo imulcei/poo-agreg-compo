@@ -6,31 +6,25 @@ import java.util.List;
 public class Batiment {
     private String adresse;
     final private int nbPiecesMaxi = 5;
-    private int nbPieces;
     private List<Piece> tabPieces;
 
-    // TODO
-    // Utiliser les setters pour mettre à jour les attributs
-    // Différencier nbPiecesDansBatiment() qui renvoit la liste des pièce de
-    // nbPiecesMaxiDansBatiment() qui renvoie bien le nombre de pièces
-    public Batiment(String adresse, int nbPieces) {
-        this.adresse = adresse;
-        this.nbPieces = nbPieces;
+    public Batiment(String adresse) {
+        setAdresse(adresse);
         this.tabPieces = new ArrayList<>();
     }
 
-    public List<Piece> nbPiecesDansBatiment() {
-        return tabPieces;
+    public int nbPiecesDansBatiment() {
+        return tabPieces.size();
     }
 
     public int nbPiecesMaxiDansBatiment() {
         return nbPiecesMaxi;
     }
 
-    public List<Piece> addPieces(Piece piece) {
+    public List<Piece> addPieces(int largeur, int hauteur, int profondeur, int nbMeubles, String nom) {
         if (tabPieces.size() < nbPiecesMaxi) {
+            Piece piece = new Piece(largeur, hauteur, profondeur, nom);
             tabPieces.add(piece);
-            nbPieces++;
         } else {
             System.out.println("Nombre maximum de pièces atteint !");
         }
@@ -38,11 +32,33 @@ public class Batiment {
     }
 
     public int piecesLibres() {
-        return nbPiecesMaxi - nbPieces;
+        return nbPiecesMaxi - nbPiecesDansBatiment();
     }
 
     public void affiche() {
         System.out.println("Adresse: " + adresse + ". Nombre de pièces maximum: " + nbPiecesMaxi + ". Il y a "
-                + nbPieces + " dans le batiment. Et il reste " + piecesLibres() + " pièce(s) de libre.");
+                + nbPiecesDansBatiment() + " pièces dans le batiment. Et il reste " + piecesLibres()
+                + " pièce(s) de libre.");
     }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public int getNbPiecesMaxi() {
+        return nbPiecesMaxi;
+    }
+
+    public List<Piece> getTabPieces() {
+        return tabPieces;
+    }
+
+    public void setTabPieces(List<Piece> tabPieces) {
+        this.tabPieces = tabPieces;
+    }
+
 }
