@@ -6,6 +6,8 @@ public class Meuble {
     private int profondeur;
     private String nom;
 
+    // TODO
+    // Utiliser les setters pour mettre à jour les attributs
     public Meuble(int largeur, int hauteur, int profondeur, String nom) {
         this.largeur = largeur;
         this.hauteur = hauteur;

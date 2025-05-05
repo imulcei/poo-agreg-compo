@@ -9,6 +9,10 @@ public class Batiment {
     private int nbPieces;
     private List<Piece> tabPieces;
 
+    // TODO
+    // Utiliser les setters pour mettre à jour les attributs
+    // Différencier nbPiecesDansBatiment() qui renvoit la liste des pièce de
+    // nbPiecesMaxiDansBatiment() qui renvoie bien le nombre de pièces
     public Batiment(String adresse, int nbPieces) {
         this.adresse = adresse;
         this.nbPieces = nbPieces;
