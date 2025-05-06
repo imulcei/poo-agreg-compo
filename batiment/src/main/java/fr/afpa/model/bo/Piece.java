@@ -31,11 +31,11 @@ public class Piece {
         return this.nbMeublesMaxi;
     }
 
-    public List<Meuble> addMeubles(Meuble meuble) {
+    public List<Meuble> addMeubles(Meuble meuble) throws Exception {
         if (tabMeubles.size() < nbMeublesMaxi) {
             tabMeubles.add(meuble);
         } else {
-            System.out.println("Nombre maximum de meubles atteint !");
+            throw new Exception("Nombre maximum de meubles atteint !");
         }
         return tabMeubles;
     }

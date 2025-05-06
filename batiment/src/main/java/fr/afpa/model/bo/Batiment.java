@@ -21,12 +21,12 @@ public class Batiment {
         return nbPiecesMaxi;
     }
 
-    public List<Piece> addPieces(int largeur, int hauteur, int profondeur, int nbMeubles, String nom) {
+    public List<Piece> addPieces(int largeur, int hauteur, int profondeur, int nbMeubles, String nom) throws Exception {
         if (tabPieces.size() < nbPiecesMaxi) {
             Piece piece = new Piece(largeur, hauteur, profondeur, nom);
             tabPieces.add(piece);
         } else {
-            System.out.println("Nombre maximum de pièces atteint !");
+            throw new Exception("Nombre maximum de pièces atteint !");
         }
         return tabPieces;
     }
